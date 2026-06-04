@@ -58,6 +58,70 @@
       </div>
     </div>
   </main>
+<!-- Step 3 & Step 4 Script – English → Myanmar + Refined Script + TTS Placeholder -->
+<script>
+  // Elements
+  const englishInput = document.getElementById('english-script');
+  const aiOutput = document.getElementById('ai-script');
+  const refinedScript = document.getElementById('refined-script');
+  const ttsAudio = document.getElementById('tts-audio');
 
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
+  // English → AI Myanmar Script Translation (Step 3)
+  englishInput.addEventListener('input', async () => {
+    const text = englishInput.value;
+    if (!text) {
+      aiOutput.textContent = '';
+      refinedScript.value = '';
+      ttsAudio.src = '';
+      return;
+    }
+
+    // Dummy AI translation (replace with real API later)
+    const translated = await translateToMyanmar(text);
+    aiOutput.textContent = translated;
+
+    // Auto fill refined script panel
+    refinedScript.value = translated;
+  });
+
+  async function translateToMyanmar(text) {
+    // Placeholder translation logic – replace with real TTS API later
+    return 'မြန်မာ script အတွက် AI translation: ' + text;
+  }
+
+  // Regenerate TTS Audio (Step 4)
+  const regenerateBtn = document.querySelector('button.bg-purple-500');
+  regenerateBtn.addEventListener('click', () => {
+    const finalScript = refinedScript.value.trim();
+    if (!finalScript) return;
+
+    // Placeholder: create TTS audio URL (replace with real TTS API)
+    const audioUrl = generateDummyAudio(finalScript);
+    ttsAudio.src = audioUrl;
+    ttsAudio.play();
+  });
+
+  // Download Audio Button
+  const downloadBtn = document.querySelector('button.bg-green-500');
+  downloadBtn.addEventListener('click', () => {
+    if (!ttsAudio.src) return;
+    const a = document.createElement('a');
+    a.href = ttsAudio.src;
+    a.download = 'MVoice_output.mp3';
+    a.click();
+  });
+
+  function generateDummyAudio(text) {
+    // Temporary placeholder: use silent audio or local dummy mp3
+    // Replace with API call for real TTS
+    return 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
+  }
+    </script>
 </body>
 </html>

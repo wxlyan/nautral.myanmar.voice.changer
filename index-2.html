@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M.Voice Pro</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <h1>M.Voice</h1>
+  <button id="themeToggle">Theme</button>
+</header>
+
+<main>
+  <section class="card">
+    <div class="badge">01</div>
+    <h2>English Script</h2>
+    <textarea id="inputText"></textarea>
+  </section>
+
+  <section class="card">
+    <div class="badge">02</div>
+    <h2>Myanmar Script</h2>
+    <textarea id="outputText"></textarea>
+  </section>
+
+  <section class="card">
+    <div class="badge">03</div>
+    <h2>Audio Editor</h2>
+    <div id="waveform"></div>
+    <audio id="audioPlayer" controls></audio>
+    <button id="generateBtn">Generate</button>
+  </section>
+</main>
+
+<footer>
+M.Voice • wxlyan.github.io
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
